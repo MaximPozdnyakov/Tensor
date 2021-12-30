@@ -18,3 +18,9 @@ export interface NotificationColorsI {
   warning: string;
   info: string;
 }
+
+export type OnColorChangeType = (
+  menuColors: MenuColorsI,
+  baseColors: BaseColorsI,
+  notificationColors: NotificationColorsI
+) => void;
