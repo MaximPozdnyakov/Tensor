@@ -6,7 +6,7 @@ import "fonts/SourceSansPro/SourceSansPro-Regular.ttf";
 import "fonts/SourceSansPro/SourceSansPro-SemiBold.ttf";
 
 import "styles/main.css";
-import "styles/normalize.css";
+import "styles/base/normalize.css";
 
 ReactDOM.render(
   <React.StrictMode>
