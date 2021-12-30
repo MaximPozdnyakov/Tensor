@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ThemeSettings from "components/ThemeSettings";
 
 import {
   MenuColorsI,
@@ -40,7 +41,13 @@ function App() {
     setNotificationColors(notificationColors);
   };
 
-  return <div className="page"></div>;
+  return (
+    <div className="page">
+      <ThemeSettings
+        {...{ menuColors, baseColors, notificationColors, onColorChange }}
+      />
+    </div>
+  );
 }
 
 export default App;
