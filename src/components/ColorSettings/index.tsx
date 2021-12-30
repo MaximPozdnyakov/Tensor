@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SettingsBtn from "components/ColorSettings/SettingsBtn";
 
 import {
   MenuColorsI,
@@ -33,7 +34,11 @@ function ColorSettings({
     case PopupOptions.NotificationColors:
       return <div>Цвета уведомлений</div>;
     default:
-      return <div></div>;
+      return (
+        <SettingsBtn
+          onClick={setCurrentPopup.bind(null, PopupOptions.ColorGroups)}
+        />
+      );
   }
 }
 
