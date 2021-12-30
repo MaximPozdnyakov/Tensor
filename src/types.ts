@@ -24,3 +24,10 @@ export type OnColorChangeType = (
   baseColors: BaseColorsI,
   notificationColors: NotificationColorsI
 ) => void;
+
+export enum PopupOptions {
+  ColorGroups,
+  MenuColors,
+  BaseColors,
+  NotificationColors,
+}
