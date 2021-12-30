@@ -11,6 +11,17 @@
 body {
   font-family: "Source Sans Pro";
 }
+.text {
+  font-size: 12px;
+  line-height: 15px;
+  color: #999999;
+}
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: #333333;
+}
 .page {
   background: #fff;
   width: 100vw;
