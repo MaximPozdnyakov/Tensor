@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   MenuColorsI,
   BaseColorsI,
   NotificationColorsI,
   OnColorChangeType,
+  PopupOptions,
 } from "types";
 
 interface ColorSettingsProps {
@@ -20,7 +21,20 @@ function ColorSettings({
   notificationColors,
   onColorChange,
 }: ColorSettingsProps) {
-  return <div></div>;
+  const [currentPopup, setCurrentPopup] = useState<number | null>(null);
+
+  switch (currentPopup) {
+    case PopupOptions.ColorGroups:
+      return <div>Стили оформления</div>;
+    case PopupOptions.MenuColors:
+      return <div>Цвета меню</div>;
+    case PopupOptions.BaseColors:
+      return <div>Базовые элементы</div>;
+    case PopupOptions.NotificationColors:
+      return <div>Цвета уведомлений</div>;
+    default:
+      return <div></div>;
+  }
 }
 
 export default ColorSettings;
