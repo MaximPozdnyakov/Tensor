@@ -7,20 +7,20 @@ import {
   OnColorChangeType,
 } from "types";
 
-interface ThemeSettingsProps {
+interface ColorSettingsProps {
   menuColors: MenuColorsI;
   baseColors: BaseColorsI;
   notificationColors: NotificationColorsI;
   onColorChange: OnColorChangeType;
 }
 
-function ThemeSettings({
+function ColorSettings({
   menuColors,
   baseColors,
   notificationColors,
   onColorChange,
-}: ThemeSettingsProps) {
+}: ColorSettingsProps) {
   return <div></div>;
 }
 
-export default ThemeSettings;
+export default ColorSettings;
