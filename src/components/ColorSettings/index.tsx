@@ -114,6 +114,33 @@ function ColorSettings({
     },
   ];
 
+  const notificationColorGroup: ColorGroupI[] = [
+    {
+      items: [
+        {
+          colors: [notificationColors.success],
+          title: "Успех",
+          description: "При положительном результате",
+        },
+        {
+          colors: [notificationColors.danger],
+          title: "Опасность",
+          description: "Ограничит возможности",
+        },
+        {
+          colors: [notificationColors.warning],
+          title: "Предупреждение",
+          description: "Для предупредительных сообщений",
+        },
+        {
+          colors: [notificationColors.info],
+          title: "Информационный",
+          description: "Донесет материал",
+        },
+      ],
+    },
+  ];
+
   switch (currentPopup) {
     case PopupOptions.ColorGroups:
       return (
@@ -147,7 +174,15 @@ function ColorSettings({
         />
       );
     case PopupOptions.NotificationColors:
-      return <div>Цвета уведомлений</div>;
+      return (
+        <ColorsCard
+          {...{
+            title: "Цвета уведомлений",
+            colorGroups: notificationColorGroup,
+            onClose,
+          }}
+        />
+      );
     default:
       return (
         <SettingsBtn
