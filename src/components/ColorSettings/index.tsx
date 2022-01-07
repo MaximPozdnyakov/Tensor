@@ -28,6 +28,7 @@ function ColorSettings({
   const [currentPopup, setCurrentPopup] = useState<number | null>(null);
 
   const onClose = setCurrentPopup.bind(null, null);
+  const onBackClick = setCurrentPopup.bind(null, PopupOptions.ColorGroups);
 
   const colorGroups: ColorGroupI[] = [
     {
@@ -160,6 +161,7 @@ function ColorSettings({
             title: "Цвета меню",
             colorGroups: menuColorGroup,
             onClose,
+            onBackClick,
           }}
         />
       );
@@ -170,6 +172,7 @@ function ColorSettings({
             title: "Базовые элементы",
             colorGroups: baseColorGroup,
             onClose,
+            onBackClick,
           }}
         />
       );
@@ -180,6 +183,7 @@ function ColorSettings({
             title: "Цвета уведомлений",
             colorGroups: notificationColorGroup,
             onClose,
+            onBackClick,
           }}
         />
       );

@@ -10,6 +10,7 @@ interface ColorsCardProps {
   description?: string;
   colorGroups: ColorGroupI[];
   onClose: React.MouseEventHandler<HTMLDivElement>;
+  onBackClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 function ColorsCard({
@@ -17,10 +18,11 @@ function ColorsCard({
   description,
   colorGroups,
   onClose,
+  onBackClick,
 }: ColorsCardProps) {
   return (
     <div className="colors-card">
-      <CardHeader {...{ title, onClose }} />
+      <CardHeader {...{ title, onClose, onBackClick }} />
       <CardBody {...{ description, colorGroups }} />
     </div>
   );

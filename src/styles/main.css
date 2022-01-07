@@ -91,6 +91,16 @@ body {
 .colors-card__item:last-of-type {
   margin-bottom: 0;
 }
+.colors-card__back-icon {
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.colors-card__title-wrapper {
+  display: flex;
+  align-items: center;
+}
 .color-item {
   display: flex;
   padding-right: 7.38px;
