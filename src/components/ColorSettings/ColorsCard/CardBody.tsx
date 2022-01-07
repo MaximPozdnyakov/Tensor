@@ -26,7 +26,10 @@ function CardBody({ description, colorGroups }: CardBodyProps) {
           )}
 
           {items.map(({ colors, title, description, onClick }) => (
-            <ColorItem {...{ colors, title, description, onClick }} />
+            <ColorItem
+              {...{ colors, title, description, onClick }}
+              key={title}
+            />
           ))}
         </Fragment>
       ))}
