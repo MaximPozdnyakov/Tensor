@@ -60,6 +60,33 @@ function ColorSettings({
     },
   ];
 
+  const menuColorGroup: ColorGroupI[] = [
+    {
+      items: [
+        {
+          colors: [menuColors.background],
+          title: "Фон меню",
+          description: "Цвет заливки основного фона",
+        },
+        {
+          colors: [menuColors.sectionText],
+          title: "Текст раздела",
+          description: "Цвет текста разделов главного меню",
+        },
+        {
+          colors: [menuColors.marker],
+          title: "Маркер",
+          description: "Цвет выбранного раздела меню",
+        },
+        {
+          colors: [menuColors.sectionIcon],
+          title: "Иконка раздела",
+          description: "Цвет иконки в главном меню",
+        },
+      ],
+    },
+  ];
+
   switch (currentPopup) {
     case PopupOptions.ColorGroups:
       return (
@@ -73,7 +100,15 @@ function ColorSettings({
         />
       );
     case PopupOptions.MenuColors:
-      return <div>Цвета меню</div>;
+      return (
+        <ColorsCard
+          {...{
+            title: "Цвета меню",
+            colorGroups: menuColorGroup,
+            onClose,
+          }}
+        />
+      );
     case PopupOptions.BaseColors:
       return <div>Базовые элементы</div>;
     case PopupOptions.NotificationColors:
