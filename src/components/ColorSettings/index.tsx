@@ -87,6 +87,33 @@ function ColorSettings({
     },
   ];
 
+  const baseColorGroup: ColorGroupI[] = [
+    {
+      items: [
+        {
+          colors: [baseColors.titleAndText],
+          title: "Заголовок и текст",
+          description: "Отличит заголовки от текста",
+        },
+        {
+          colors: [baseColors.tags],
+          title: "Метки",
+          description: "Подписи полей ввода и таблиц",
+        },
+        {
+          colors: [baseColors.icons],
+          title: "Иконки",
+          description: "Цвета иконок",
+        },
+        {
+          colors: [baseColors.workspace],
+          title: "Рабочая область",
+          description: "Фон базовых элементов",
+        },
+      ],
+    },
+  ];
+
   switch (currentPopup) {
     case PopupOptions.ColorGroups:
       return (
@@ -110,7 +137,15 @@ function ColorSettings({
         />
       );
     case PopupOptions.BaseColors:
-      return <div>Базовые элементы</div>;
+      return (
+        <ColorsCard
+          {...{
+            title: "Базовые элементы",
+            colorGroups: baseColorGroup,
+            onClose,
+          }}
+        />
+      );
     case PopupOptions.NotificationColors:
       return <div>Цвета уведомлений</div>;
     default:
