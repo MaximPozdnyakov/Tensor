@@ -7,7 +7,7 @@ interface ColorItemProps {
   colors: string[];
   title: string;
   description: string;
-  onClick: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 function ColorItem({ colors, title, description, onClick }: ColorItemProps) {
