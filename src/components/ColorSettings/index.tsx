@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+
 import SettingsBtn from "components/ColorSettings/SettingsBtn";
+import ColorsCard from "components/ColorSettings/ColorsCard";
 
 import {
   MenuColorsI,
@@ -26,7 +28,7 @@ function ColorSettings({
 
   switch (currentPopup) {
     case PopupOptions.ColorGroups:
-      return <div>Стили оформления</div>;
+      return <ColorsCard {...{ menuColors, baseColors, notificationColors }} />;
     case PopupOptions.MenuColors:
       return <div>Цвета меню</div>;
     case PopupOptions.BaseColors:
