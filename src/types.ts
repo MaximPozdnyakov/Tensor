@@ -19,6 +19,15 @@ export interface NotificationColorsI {
   info: string;
 }
 
+export interface ColorGroupI {
+  title?: string;
+  items: {
+    colors: string[];
+    title: string;
+    description: string;
+  }[];
+}
+
 export type OnColorChangeType = (
   menuColors: MenuColorsI,
   baseColors: BaseColorsI,
