@@ -49,10 +49,8 @@ body {
 .colors-card__header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 19.5px;
-}
-.colors-card__title {
-  margin-top: 0.5px;
+  margin-bottom: 18px;
+  align-items: center;
 }
 .colors-card__icons {
   display: flex;
@@ -71,7 +69,7 @@ body {
   cursor: pointer;
 }
 .colors-card__description {
-  margin-top: -11.5px;
+  margin-top: -10px;
   margin-bottom: -6px;
 }
 .colors-card__divider {

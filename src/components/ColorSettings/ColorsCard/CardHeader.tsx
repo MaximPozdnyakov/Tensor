@@ -11,7 +11,7 @@ interface CardHeaderProps {
 function CardHeader({ title, onClose }: CardHeaderProps) {
   return (
     <div className="colors-card__header">
-      <div className="title colors-card__title">{title}</div>
+      <div className="title">{title}</div>
       <div className="colors-card__icons">
         <div className="colors-card__icon">
           <CheckIcon />
