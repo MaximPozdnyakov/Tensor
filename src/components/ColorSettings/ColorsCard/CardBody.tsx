@@ -25,8 +25,8 @@ function CardBody({ description, colorGroups }: CardBodyProps) {
             <div className="title colors-card__list-title">{title}</div>
           )}
 
-          {items.map(({ colors, title, description }) => (
-            <ColorItem {...{ colors, title, description }} />
+          {items.map(({ colors, title, description, onClick }) => (
+            <ColorItem {...{ colors, title, description, onClick }} />
           ))}
         </Fragment>
       ))}

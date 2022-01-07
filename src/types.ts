@@ -25,6 +25,7 @@ export interface ColorGroupI {
     colors: string[];
     title: string;
     description: string;
+    onClick: React.MouseEventHandler<HTMLDivElement>;
   }[];
 }
 

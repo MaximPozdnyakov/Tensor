@@ -7,9 +7,10 @@ interface ColorItemProps {
   colors: string[];
   title: string;
   description: string;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-function ColorItem({ colors, title, description }: ColorItemProps) {
+function ColorItem({ colors, title, description, onClick }: ColorItemProps) {
   const icon = colors.length === 1 ? <SliderIcon /> : <ArrowIcon />;
   const iconClassName = colors.length === 1 ? "color-item__icon" : "";
 
@@ -25,7 +26,7 @@ function ColorItem({ colors, title, description }: ColorItemProps) {
     ));
 
   return (
-    <div className="colors-card__item color-item">
+    <div className="colors-card__item color-item" onClick={onClick}>
       <div
         className="color-item__thumbnail"
         style={{ background: thumbnailBg }}
