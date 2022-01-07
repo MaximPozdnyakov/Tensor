@@ -11,12 +11,14 @@ interface ColorsCardProps {
   menuColors: MenuColorsI;
   baseColors: BaseColorsI;
   notificationColors: NotificationColorsI;
+  onClose: React.MouseEventHandler<HTMLDivElement>;
 }
 
 function ColorsCard({
   menuColors,
   baseColors,
   notificationColors,
+  onClose,
 }: ColorsCardProps) {
   return (
     <div className="colors-card">
@@ -26,7 +28,7 @@ function ColorsCard({
           <div className="colors-card__icon">
             <CheckIcon />
           </div>
-          <div className="colors-card__icon">
+          <div className="colors-card__icon" onClick={onClose}>
             <CrossIcon />
           </div>
         </div>

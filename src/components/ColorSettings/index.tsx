@@ -26,9 +26,15 @@ function ColorSettings({
 }: ColorSettingsProps) {
   const [currentPopup, setCurrentPopup] = useState<number | null>(null);
 
+  const onClose = setCurrentPopup.bind(null, null);
+
   switch (currentPopup) {
     case PopupOptions.ColorGroups:
-      return <ColorsCard {...{ menuColors, baseColors, notificationColors }} />;
+      return (
+        <ColorsCard
+          {...{ menuColors, baseColors, notificationColors, onClose }}
+        />
+      );
     case PopupOptions.MenuColors:
       return <div>Цвета меню</div>;
     case PopupOptions.BaseColors:
