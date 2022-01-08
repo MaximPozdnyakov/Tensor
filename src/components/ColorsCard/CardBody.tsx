@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import { ColorGroupI } from "types";
 
-import ColorItem from "components/ColorSettings/ColorsCard/ColorItem";
+import ColorItem from "components/ColorsCard/ColorItem";
 
 interface CardBodyProps {
   description?: string;

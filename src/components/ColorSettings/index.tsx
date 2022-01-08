@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import SettingsBtn from "components/Buttons/SettingsBtn";
-import ColorsCard from "components/ColorSettings/ColorsCard";
+import ColorsCard from "components/ColorsCard";
 
 import {
   MenuColorsI,

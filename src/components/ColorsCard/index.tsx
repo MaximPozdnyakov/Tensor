@@ -2,8 +2,8 @@ import React from "react";
 
 import { ColorGroupI } from "types";
 
-import CardHeader from "components/ColorSettings/ColorsCard/CardHeader";
-import CardBody from "components/ColorSettings/ColorsCard/CardBody";
+import CardHeader from "components/ColorsCard/CardHeader";
+import CardBody from "components/ColorsCard/CardBody";
 
 interface ColorsCardProps {
   title: string;
