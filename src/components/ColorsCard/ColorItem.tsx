@@ -51,7 +51,7 @@ function ColorItem({ colors, title, description, onClick }: ColorItemProps) {
         <div className={iconClassName}>{icon}</div>
       </div>
       {isColorPickerOpen && (
-        <ColorPickerCard {...{ onClose: closeColorPicker }} />
+        <ColorPickerCard {...{ color: colors[0], onClose: closeColorPicker }} />
       )}
     </>
   );
