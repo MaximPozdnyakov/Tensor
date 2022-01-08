@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import SettingsBtn from "components/ColorSettings/SettingsBtn";
+import SettingsBtn from "components/Buttons/SettingsBtn";
 import ColorsCard from "components/ColorSettings/ColorsCard";
 
 import {
