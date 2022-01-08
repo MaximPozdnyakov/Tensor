@@ -194,3 +194,38 @@ body {
   background: transparent;
   background-image: url("icons/thumb.svg");
 }
+.color-picker__caption {
+  display: flex;
+  margin-top: 12px;
+  justify-content: space-between;
+}
+.color-picker__caption-group {
+  display: flex;
+}
+.color-picker__label {
+  font-size: 14px;
+  line-height: 18px;
+  color: #8991a9;
+  margin-top: 0.5px;
+}
+.color-picker__text {
+  font-size: 14px;
+  line-height: 18px;
+  color: #333333;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.color-picker__hex {
+  margin-left: 2px;
+}
+.color-picker__rgb {
+  display: flex;
+  margin-left: 8px;
+  justify-content: space-between;
+  width: 80px;
+  flex-shrink: 0;
+}
+.color-picker__rgb-part {
+  width: 24px;
+  text-align: center;
+}
