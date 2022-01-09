@@ -1,37 +1,78 @@
 import React, { Fragment } from "react";
 
-import { ColorGroupI } from "types";
+import { ColorsCardProps } from "components/ColorsCard/";
+import { ColorsGroupsI, ColorsI, ColorsGroupI } from "types/colors";
 
 import ColorItem from "components/ColorsCard/ColorItem";
 
 interface CardBodyProps {
-  description?: string;
-  colorGroups: ColorGroupI[];
+  colors: ColorsI;
+  colorsData: ColorsGroupsI[] | ColorsGroupI;
+  setNextModalProps: React.Dispatch<
+    React.SetStateAction<ColorsCardProps | null>
+  >;
+  onClose: React.MouseEventHandler<HTMLDivElement>;
 }
 
-function CardBody({ description, colorGroups }: CardBodyProps) {
+function CardBody({
+  colors,
+  colorsData,
+  setNextModalProps,
+  onClose,
+}: CardBodyProps) {
+  if (Array.isArray(colorsData)) {
+    return (
+      <>
+        {colorsData.map(({ title, colorsGroups }) => {
+          const items = colorsGroups.map((colorsGroup) => {
+            const { title, subtitle, description } = colorsGroup;
+            const currentColors = colorsGroup.colors
+              .map(({ label }) => colors[label])
+              .filter((color) => color !== undefined);
+
+            const onItemClick = setNextModalProps.bind(null, {
+              title,
+              colors,
+              colorsData: colorsGroup,
+              onBackClick: setNextModalProps.bind(null, null),
+              onClose,
+            });
+
+            return (
+              <ColorItem
+                {...{
+                  colors: currentColors,
+                  title: subtitle,
+                  description,
+                  onClick: onItemClick,
+                }}
+                key={subtitle}
+              />
+            );
+          });
+
+          return (
+            <Fragment key={`group-${title}`}>
+              <div className="colors-card__divider"></div>
+              <div className="title colors-card__list-title">{title}</div>
+              {items}
+            </Fragment>
+          );
+        })}
+      </>
+    );
+  }
   return (
     <>
-      {description && (
-        <div className="text colors-card__description">{description}</div>
-      )}
-      {colorGroups.map(({ title, items }) => (
-        <Fragment key={`group-${title}`}>
-          {colorGroups.length > 1 && (
-            <div className="colors-card__divider"></div>
-          )}
-
-          {title && (
-            <div className="title colors-card__list-title">{title}</div>
-          )}
-
-          {items.map(({ colors, title, description, onClick }) => (
-            <ColorItem
-              {...{ colors, title, description, onClick }}
-              key={title}
-            />
-          ))}
-        </Fragment>
+      {colorsData.colors.map(({ label, title, description }) => (
+        <ColorItem
+          {...{
+            colors: [colors[label]],
+            title,
+            description,
+          }}
+          key={title}
+        />
       ))}
     </>
   );

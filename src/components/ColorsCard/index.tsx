@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { ColorGroupI } from "types";
+import { ColorsGroupsI, ColorsI, ColorsGroupI } from "types/colors";
 
 import CardHeader from "components/ColorsCard/CardHeader";
 import CardBody from "components/ColorsCard/CardBody";
 
-interface ColorsCardProps {
+export interface ColorsCardProps {
   title: string;
   description?: string;
-  colorGroups: ColorGroupI[];
+  colors: ColorsI;
+  colorsData: ColorsGroupsI[] | ColorsGroupI;
   onClose: React.MouseEventHandler<HTMLDivElement>;
   onBackClick?: React.MouseEventHandler<HTMLDivElement>;
 }
@@ -16,14 +17,22 @@ interface ColorsCardProps {
 function ColorsCard({
   title,
   description,
-  colorGroups,
+  colors,
+  colorsData,
   onClose,
   onBackClick,
 }: ColorsCardProps) {
+  const [nextModalProps, setNextModalProps] = useState<ColorsCardProps | null>(
+    null
+  );
+
+  if (nextModalProps) {
+    return <ColorsCard {...nextModalProps} />;
+  }
   return (
     <div className="colors-card">
-      <CardHeader {...{ title, onClose, onBackClick }} />
-      <CardBody {...{ description, colorGroups }} />
+      <CardHeader {...{ title, description, onClose, onBackClick }} />
+      <CardBody {...{ colors, colorsData, setNextModalProps, onClose }} />
     </div>
   );
 }
