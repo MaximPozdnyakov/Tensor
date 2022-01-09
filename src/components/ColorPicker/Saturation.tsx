@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import { convertHexToHsv, convertHsvToHex } from "utils/colors";
+import { convertHexToHsv, convertHsvToHex, isColorLight } from "utils/colors";
 import { clamp } from "utils/clamp";
 
 interface SaturationProps {
@@ -37,9 +37,15 @@ function Saturation({ hue, color, onChange }: SaturationProps) {
 
         const s = +((x / width) * 100).toFixed(2);
         const v = +((1 - y / width) * 100).toFixed(2);
+        const hex = convertHsvToHex(hue, s, v);
 
+        onChange(hex);
         setPointerPosition(s, v);
-        onChange(convertHsvToHex(hue, s, v));
+        if (isColorLight(hex)) {
+          pointer.current.style.borderColor = "#000";
+        } else {
+          pointer.current.style.borderColor = "#fff";
+        }
       }
     };
 

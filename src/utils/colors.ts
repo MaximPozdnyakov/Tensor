@@ -102,3 +102,9 @@ export const convertHsvToHex = (H: number, S: number, V: number) => {
     Math.round(b * 255)
   );
 };
+
+export const isColorLight = (color: string) => {
+  const [r, g, b] = convertHexToRgb(color);
+  const hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
+  return hsp > 127.5;
+};
