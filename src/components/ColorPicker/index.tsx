@@ -25,15 +25,15 @@ function ColorPicker({ initialColor, onChange }: ColorPickerProps) {
     setColor(convertHsvToHex(h % 360, s, v));
   };
 
-  const onColorChange = (color: string) => {
+  const onSvChange = (color: string) => {
     setColor(color);
   };
 
   return (
     <div className="color-picker">
-      <Saturation {...{ hue, color, onChange: onColorChange }} />
+      <Saturation {...{ hue, color, onChange: onSvChange }} />
       <Slider
-        defaultValue={hue}
+        initialValue={hue}
         min={0}
         max={360}
         onChange={onHueChange}
