@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ColorsI } from "types/colors";
 
 import { ReactComponent as ArrowIcon } from "icons/arrow.svg";
@@ -24,6 +24,7 @@ function ColorItem({
   setColors,
 }: ColorItemProps) {
   const [isColorPickerOpen, setColorPickerOpen] = useState(false);
+  const itemRef = useRef<HTMLDivElement>(null);
 
   const openColorPicker = setColorPickerOpen.bind(null, true);
   const closeColorPicker = setColorPickerOpen.bind(null, false);
@@ -54,6 +55,7 @@ function ColorItem({
       <div
         className="colors-card__item color-item"
         onClick={onClick || openColorPicker}
+        ref={itemRef}
       >
         <div
           className="color-item__thumbnail"
@@ -73,6 +75,7 @@ function ColorItem({
             color: colors[0],
             onClose: closeColorPicker,
             onColorSelected,
+            parentRef: itemRef,
           }}
         />
       )}
