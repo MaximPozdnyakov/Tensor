@@ -17,21 +17,21 @@ function ColorSettings({
   onColorsChange,
 }: ColorSettingsProps) {
   const [colors, setColors] = useState<ColorsI>(initialColors);
-  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const onClose = () => {
     setColors(initialColors);
-    setPopupOpen(false);
+    setModalOpen(false);
   };
 
   const onConfirm = () => {
     onColorsChange(colors);
-    setPopupOpen(false);
+    setModalOpen(false);
   };
 
-  const openPopup = setPopupOpen.bind(null, true);
+  const openModal = setModalOpen.bind(null, true);
 
-  if (isPopupOpen) {
+  if (isModalOpen) {
     return (
       <ColorsCard
         {...{
@@ -46,7 +46,7 @@ function ColorSettings({
       />
     );
   }
-  return <SettingsBtn onClick={openPopup} />;
+  return <SettingsBtn onClick={openModal} />;
 }
 
 export default ColorSettings;
