@@ -19,7 +19,16 @@ function ColorSettings({
   const [colors, setColors] = useState<ColorsI>(initialColors);
   const [isPopupOpen, setPopupOpen] = useState(false);
 
-  const closePopup = setPopupOpen.bind(null, false);
+  const onClose = () => {
+    setColors(initialColors);
+    setPopupOpen(false);
+  };
+
+  const onConfirm = () => {
+    onColorsChange(colors);
+    setPopupOpen(false);
+  };
+
   const openPopup = setPopupOpen.bind(null, true);
 
   if (isPopupOpen) {
@@ -30,7 +39,9 @@ function ColorSettings({
           description: "Здесь вы можете настроить цвета сайта",
           colors,
           colorsData,
-          onClose: closePopup,
+          onConfirm,
+          onClose,
+          setColors,
         }}
       />
     );

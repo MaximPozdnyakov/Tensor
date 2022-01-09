@@ -11,14 +11,18 @@ interface CardBodyProps {
   setNextModalProps: React.Dispatch<
     React.SetStateAction<ColorsCardProps | null>
   >;
+  onConfirm: React.MouseEventHandler<HTMLDivElement>;
   onClose: React.MouseEventHandler<HTMLDivElement>;
+  setColors: React.Dispatch<React.SetStateAction<ColorsI>>;
 }
 
 function CardBody({
   colors,
   colorsData,
   setNextModalProps,
+  onConfirm,
   onClose,
+  setColors,
 }: CardBodyProps) {
   if (Array.isArray(colorsData)) {
     return (
@@ -35,7 +39,9 @@ function CardBody({
               colors,
               colorsData: colorsGroup,
               onBackClick: setNextModalProps.bind(null, null),
+              onConfirm,
               onClose,
+              setColors,
             });
 
             return (
@@ -45,6 +51,7 @@ function CardBody({
                   title: subtitle,
                   description,
                   onClick: onItemClick,
+                  setColors,
                 }}
                 key={subtitle}
               />
@@ -67,9 +74,11 @@ function CardBody({
       {colorsData.colors.map(({ label, title, description }) => (
         <ColorItem
           {...{
+            label,
             colors: [colors[label]],
             title,
             description,
+            setColors,
           }}
           key={title}
         />

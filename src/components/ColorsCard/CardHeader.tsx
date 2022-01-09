@@ -8,6 +8,7 @@ interface CardHeaderProps {
   title: string;
   description?: string;
   onClose: React.MouseEventHandler<HTMLDivElement>;
+  onConfirm: React.MouseEventHandler<HTMLDivElement>;
   onBackClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
@@ -15,6 +16,7 @@ function CardHeader({
   title,
   description,
   onClose,
+  onConfirm,
   onBackClick,
 }: CardHeaderProps) {
   return (
@@ -29,7 +31,7 @@ function CardHeader({
           <div className="title">{title}</div>
         </div>
         <div className="colors-card__icons">
-          <div className="colors-card__icon">
+          <div className="colors-card__icon" onClick={onConfirm}>
             <CheckIcon />
           </div>
           <div className="colors-card__icon" onClick={onClose}>

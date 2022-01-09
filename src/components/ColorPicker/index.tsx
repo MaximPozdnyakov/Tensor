@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { convertHexToHsv, convertHsvToHex } from "utils/colors";
 
@@ -7,12 +7,17 @@ import ColorCaption from "components/ColorPicker/ColorCaption";
 import Saturation from "components/ColorPicker/Saturation";
 
 interface ColorPickerProps {
-  defaultColor: string;
+  initialColor: string;
+  onChange: (color: string) => void;
 }
 
-function ColorPicker({ defaultColor }: ColorPickerProps) {
-  const [color, setColor] = useState(defaultColor.toLowerCase());
+function ColorPicker({ initialColor, onChange }: ColorPickerProps) {
+  const [color, setColor] = useState(initialColor.toLowerCase());
   const [hue, setHue] = useState(() => Math.round(convertHexToHsv(color)[0]));
+
+  useEffect(() => {
+    onChange(color);
+  }, [color, onChange]);
 
   const onHueChange = (h: number) => {
     setHue(h % 360);

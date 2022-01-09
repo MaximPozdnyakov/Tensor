@@ -10,8 +10,10 @@ export interface ColorsCardProps {
   description?: string;
   colors: ColorsI;
   colorsData: ColorsGroupsI[] | ColorsGroupI;
+  onConfirm: React.MouseEventHandler<HTMLDivElement>;
   onClose: React.MouseEventHandler<HTMLDivElement>;
   onBackClick?: React.MouseEventHandler<HTMLDivElement>;
+  setColors: React.Dispatch<React.SetStateAction<ColorsI>>;
 }
 
 function ColorsCard({
@@ -19,20 +21,33 @@ function ColorsCard({
   description,
   colors,
   colorsData,
+  onConfirm,
   onClose,
   onBackClick,
+  setColors,
 }: ColorsCardProps) {
   const [nextModalProps, setNextModalProps] = useState<ColorsCardProps | null>(
     null
   );
 
   if (nextModalProps) {
-    return <ColorsCard {...nextModalProps} />;
+    return <ColorsCard {...{ ...nextModalProps, colors }} />;
   }
   return (
     <div className="colors-card">
-      <CardHeader {...{ title, description, onClose, onBackClick }} />
-      <CardBody {...{ colors, colorsData, setNextModalProps, onClose }} />
+      <CardHeader
+        {...{ title, description, onConfirm, onClose, onBackClick }}
+      />
+      <CardBody
+        {...{
+          colors,
+          colorsData,
+          setNextModalProps,
+          onConfirm,
+          onClose,
+          setColors,
+        }}
+      />
     </div>
   );
 }

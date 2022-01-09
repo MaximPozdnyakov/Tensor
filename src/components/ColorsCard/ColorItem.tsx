@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ColorsI } from "types/colors";
 
 import { ReactComponent as ArrowIcon } from "icons/arrow.svg";
 import { ReactComponent as SliderIcon } from "icons/slider.svg";
@@ -6,13 +7,22 @@ import { ReactComponent as SliderIcon } from "icons/slider.svg";
 import ColorPickerCard from "components/ColorsCard/ColorPickerCard";
 
 interface ColorItemProps {
+  label?: string;
   colors: string[];
   title: string;
   description: string;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
+  setColors: React.Dispatch<React.SetStateAction<ColorsI>>;
 }
 
-function ColorItem({ colors, title, description, onClick }: ColorItemProps) {
+function ColorItem({
+  label,
+  colors,
+  title,
+  description,
+  onClick,
+  setColors,
+}: ColorItemProps) {
   const [isColorPickerOpen, setColorPickerOpen] = useState(false);
 
   const openColorPicker = setColorPickerOpen.bind(null, true);
@@ -51,7 +61,14 @@ function ColorItem({ colors, title, description, onClick }: ColorItemProps) {
         <div className={iconClassName}>{icon}</div>
       </div>
       {isColorPickerOpen && (
-        <ColorPickerCard {...{ color: colors[0], onClose: closeColorPicker }} />
+        <ColorPickerCard
+          {...{
+            label: label || "",
+            color: colors[0],
+            onClose: closeColorPicker,
+            setColors,
+          }}
+        />
       )}
     </>
   );
