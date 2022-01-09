@@ -9,7 +9,6 @@ export interface ColorsGroupI {
   subtitle: string;
   description: string;
   colors: ColorDataI[];
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export interface ColorsGroupsI {
