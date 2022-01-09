@@ -1,19 +1,19 @@
 import React from "react";
 
+import { convertHexToRgb } from "utils";
+
 interface ColorCaptionProps {
-  hex: string;
-  r: number;
-  g: number;
-  b: number;
+  color: string;
 }
 
-function ColorCaption({ hex, r, g, b }: ColorCaptionProps) {
+function ColorCaption({ color }: ColorCaptionProps) {
+  const [r, g, b] = convertHexToRgb(color);
   return (
     <div className="text color-picker__caption">
       <div className="color-picker__caption-group">
         <div className="color-picker__label">#</div>
         <div className="color-picker__text color-picker__hex">
-          {hex.slice(1)}
+          {color.slice(1)}
         </div>
       </div>
       <div className="color-picker__caption-group">

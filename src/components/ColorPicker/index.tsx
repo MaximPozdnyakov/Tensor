@@ -12,22 +12,21 @@ interface ColorPickerProps {
 function ColorPicker({ defaultColor }: ColorPickerProps) {
   const [color, setColor] = useState(defaultColor.toLowerCase());
 
-  const [hue, s, l] = convertHexToHsl(color);
-  const [r, g, b] = convertHexToRgb(color);
-  const onHueChange = (hue: number) => {
-    setColor(convertHslToHex(hue, s, l));
+  const [h, s, l] = convertHexToHsl(color);
+  const onHueChange = (h: number) => {
+    setColor(convertHslToHex(h, s, l));
   };
 
   return (
     <div className="color-picker">
       <Slider
-        defaultValue={hue}
+        defaultValue={h}
         min={0}
         max={359}
         onChange={onHueChange}
         sliderClassName="slider"
       />
-      <ColorCaption {...{ hex: color, r, g, b }} />
+      <ColorCaption {...{ color }} />
     </div>
   );
 }
