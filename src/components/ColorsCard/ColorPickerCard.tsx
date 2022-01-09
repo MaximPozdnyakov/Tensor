@@ -5,17 +5,15 @@ import CardHeader from "components/ColorsCard/CardHeader";
 import ColorPicker from "components/ColorPicker";
 
 interface ColorPickerCardProps {
-  label: string;
   color: string;
   onClose: React.MouseEventHandler<HTMLDivElement>;
-  setColors: React.Dispatch<React.SetStateAction<ColorsI>>;
+  onColorSelected: (color: string) => void;
 }
 
 function ColorPickerCard({
-  label,
   color: initialColor,
   onClose,
-  setColors,
+  onColorSelected,
 }: ColorPickerCardProps) {
   const [color, setColor] = useState(initialColor);
 
@@ -23,10 +21,7 @@ function ColorPickerCard({
     setColor(color);
   };
 
-  const onConfirm = (e: React.MouseEvent<HTMLDivElement>) => {
-    setColors((colors) => ({ ...colors, [label]: color }));
-    onClose(e);
-  };
+  const onConfirm = onColorSelected.bind(null, color);
 
   return (
     <div className="color-picker-card">

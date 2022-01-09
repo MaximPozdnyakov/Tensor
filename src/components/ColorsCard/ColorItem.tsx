@@ -28,6 +28,13 @@ function ColorItem({
   const openColorPicker = setColorPickerOpen.bind(null, true);
   const closeColorPicker = setColorPickerOpen.bind(null, false);
 
+  const onColorSelected = (color: string) => {
+    if (label) {
+      setColors((colors) => ({ ...colors, [label]: color }));
+    }
+    closeColorPicker();
+  };
+
   const icon = colors.length === 1 ? <SliderIcon /> : <ArrowIcon />;
   const iconClassName = colors.length === 1 ? "color-item__icon" : "";
 
@@ -63,10 +70,9 @@ function ColorItem({
       {isColorPickerOpen && (
         <ColorPickerCard
           {...{
-            label: label || "",
             color: colors[0],
             onClose: closeColorPicker,
-            setColors,
+            onColorSelected,
           }}
         />
       )}
