@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 
 import { convertHexToHsv, convertHsvToHex, isColorLight } from "utils/colors";
 import { clamp } from "utils/clamp";
@@ -21,7 +21,7 @@ function Saturation({ hue, color, onChange }: SaturationProps) {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const [_, s, v] = convertHexToHsv(color);
     setPointerPosition(s, v);
   }, []);
