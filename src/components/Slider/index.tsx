@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState, CSSProperties } from "react";
 
 interface SliderProps {
-  defaultValue: number;
+  initialValue: number;
   min: number;
   max: number;
   onChange: (value: number) => void;
@@ -10,14 +10,14 @@ interface SliderProps {
 }
 
 function Slider({
-  defaultValue,
+  initialValue,
   min,
   max,
   onChange,
   sliderClassName = "slider",
   sliderStyles,
 }: SliderProps) {
-  const [value, setValue] = useState(defaultValue);
+  const [value, setValue] = useState(initialValue);
 
   useEffect(() => {
     onChange(value);
