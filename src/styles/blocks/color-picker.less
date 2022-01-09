@@ -34,4 +34,22 @@
     width: 24px;
     text-align: center;
   }
+  &__saturation {
+    width: 200px;
+    height: 200px;
+    margin-left: -12px;
+    margin-bottom: 14px;
+    position: relative;
+    background-image: linear-gradient(transparent, black),
+      linear-gradient(to right, white, transparent);
+    cursor: pointer;
+  }
+  &__cursor {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #fff;
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { convertHexToRgb } from "utils";
+import { convertHexToRgb } from "utils/colors";
 
 interface ColorCaptionProps {
   color: string;

@@ -177,9 +177,10 @@ body {
   pointer-events: none;
   position: absolute;
   height: 0;
-  width: calc(100% - 24px);
+  margin-left: -2px;
+  width: calc(100% - 22px);
   z-index: 2;
-  margin-top: 5.5px;
+  margin-top: 5.3px;
 }
 .slider__thumb::-webkit-slider-thumb,
 .slider__thumb::-moz-range-thumb {
@@ -228,4 +229,21 @@ body {
 .color-picker__rgb-part {
   width: 24px;
   text-align: center;
+}
+.color-picker__saturation {
+  width: 200px;
+  height: 200px;
+  margin-left: -12px;
+  margin-bottom: 14px;
+  position: relative;
+  background-image: linear-gradient(transparent, black), linear-gradient(to right, white, transparent);
+  cursor: pointer;
+}
+.color-picker__cursor {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #fff;
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
 }
