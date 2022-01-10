@@ -1,26 +1,26 @@
-### Запуск демо
+## Запуск демо
 
 - npm install
 - npm run start
 
-### Основные компоненты:
+## Основные компоненты:
 
-##### ColorSettings/index.tsx - компонент настройки цветов
+#### ColorSettings/index.tsx - компонент настройки цветов
 
 - colors: объект настраиваемых цветов
 - colorsData: конфиг с описанием настраиваемых цветов
 - onColorsChange: callback, который вызывается при сохранении цветов
 
-##### Buttons/SettingsBtn.tsx - кнопка с иконкой настроек
+#### Buttons/SettingsBtn.tsx - кнопка с иконкой настроек
 
 - onClick?: обработчик клика на кнопку
 
-##### Buttons/ColorPicker.tsx - компонент выбора цвета
+#### Buttons/ColorPicker.tsx - компонент выбора цвета
 
 - initialColor: цвет по умолчанию
 - onChange: callback, который вызывается при каждом изменении цвета
 
-##### Slider/index.tsx - кастомный слайдер
+#### Slider/index.tsx - кастомный слайдер
 
 - initialValue: значение по умолчанию
 - min: минимальное значение
@@ -29,7 +29,7 @@
 - sliderClassName?: className слайдера
 - sliderStyles?: стили слайдера
 
-##### ColorsCard/index.tsx - карточка настроек цветов
+#### ColorsCard/index.tsx - карточка настроек цветов
 
 - title: заголовок карточки
 - description?: описание карточки
