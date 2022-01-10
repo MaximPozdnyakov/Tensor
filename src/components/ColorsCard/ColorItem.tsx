@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { ColorsI } from "types/colors";
 
 import { ReactComponent as ArrowIcon } from "icons/arrow.svg";
